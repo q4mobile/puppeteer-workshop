@@ -1,0 +1,27 @@
+{
+  "name": "tooling_workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "json-server --watch db.json --port 3005 & parcel index.html --open",
+    "setup": "node generate_data.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "inquirer": "^9.0.2",
+    "json-server": "^0.17.0",
+    "puppeteer": "^15.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0"
+  }
+}
