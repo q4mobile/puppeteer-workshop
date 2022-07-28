@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "json-server --watch db.json --port 3005 & parcel index.html --open",
+    "start": "json-server --watch db.json --port 3010 & parcel index.html --open",
     "setup": "node generate_data.js"
   },
   "keywords": [],
@@ -14,7 +14,8 @@
   "type": "module",
   "devDependencies": {
     "@faker-js/faker": "^7.3.0",
-    "parcel-bundler": "^1.12.5"
+    "parcel": "^2.6.2",
+    "process": "^0.11.10"
   },
   "dependencies": {
     "inquirer": "^9.0.2",
