@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html --open",
-    "setup": "node generate_data.js"
+    "generate_data": "node generate_data.js"
   },
   "keywords": [],
   "author": "",
