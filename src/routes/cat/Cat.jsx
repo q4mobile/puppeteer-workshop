@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { get } from "../../db_api.js";
+import { get } from "../../../db_api.js";
 
 export default function Invoice() {
   let params = useParams();

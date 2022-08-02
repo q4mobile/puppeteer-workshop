@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { NavLink, Outlet } from "react-router-dom";
-import { index } from "../../db_api.js";
+import { index } from "../../../db_api.js";
 
 export default function cats() {
   let cats = index('cats');

@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import People from "./routes/People";
-import Cats from "./routes/Cats";
-import Cat from "./routes/Cat";
+import People from "./routes/people/People";
+import Cats from "./routes/cat/Cats";
+import Cat from "./routes/cat/Cat";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

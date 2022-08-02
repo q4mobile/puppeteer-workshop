@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { index } from "../../db_api.js";
-import Pagination from '../components/pagination';
+import { index } from "../../../db_api.js";
+import Pagination from '../../components/pagination';
 
 let PageSize = 3;
 
