@@ -10,18 +10,32 @@ const generateCatsData = (number) => {
         cats.push({
             id: number,
             name: faker.animal.cat(),
-            description: faker.lorem.paragraphs(2),
-            picture: faker.image.cats(250,250, true),
-            country: faker.address.country(),
-            joining_date: faker.date.future(),
+            job: faker.name.jobTitle(),
+            picture: faker.image.cats(400,400, true),
         });
         number--;
     }
     return cats;
 };
+
+const generatePeopleData = (number) => {
+    const people = [];
+    while (number >= 0) {
+        people.push({
+            id: number,
+            firstName: faker.name.firstName(),
+            lastName: faker.name.lastName(),
+            date: faker.date.future(),
+        });
+        number--;
+    }
+    return people;
+}
+
 fs.writeFileSync(
     "./db.json",
     JSON.stringify({
-        cats: generateCatsData(20)
+        cats: generateCatsData(20),
+        people: generatePeopleData(20)
     })
 );
