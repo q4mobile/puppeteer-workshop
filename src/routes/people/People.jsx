@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { index } from '../../../db_api.js';
+import { index } from '../../../db_api';
 import Pagination from '../../components/pagination';
 
 export default function People() {

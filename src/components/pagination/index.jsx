@@ -2,7 +2,7 @@ import React from 'react';
 import { usePagination, DOTS } from './usePagination';
 import './pagination.scss';
 
-const Pagination = (props) => {
+function Pagination(props) {
   const { onPageChange, totalCount, siblingCount = 1, currentPage, pageSize, className } = props;
 
   const paginationRange = usePagination({
@@ -25,15 +25,12 @@ const Pagination = (props) => {
     onPageChange(currentPage - 1);
   };
 
-  let lastPage = paginationRange[paginationRange.length - 1];
+  const lastPage = paginationRange[paginationRange.length - 1];
 
   return (
-    <ul className={['pagination-container ' + className]}>
+    <ul className={[`pagination-container ${className}`]}>
       {/* Left navigation arrow */}
-      <li
-        className={'pagination-item' + (currentPage === 1 ? ' disabled' : '')}
-        onClick={onPrevious}
-      >
+      <li className={`pagination-item${currentPage === 1 ? ' disabled' : ''}`} onClick={onPrevious}>
         <div className="arrow left" />
       </li>
       {paginationRange.map((pageNumber) => {
@@ -45,22 +42,20 @@ const Pagination = (props) => {
         // Render our Page Pills
         return (
           <li
-            className={'pagination-item' + (pageNumber === currentPage ? ' selected' : '')}
-            onClick={() => onPageChange(pageNumber)}
-          >
+            className={`pagination-item${pageNumber === currentPage ? ' selected' : ''}`}
+            onClick={() => onPageChange(pageNumber)}>
             {pageNumber}
           </li>
         );
       })}
       {/*  Right Navigation arrow */}
       <li
-        className={'pagination-item' + (currentPage === lastPage ? ' disabled' : '')}
-        onClick={onNext}
-      >
+        className={`pagination-item${currentPage === lastPage ? ' disabled' : ''}`}
+        onClick={onNext}>
         <div className="arrow right" />
       </li>
     </ul>
   );
-};
+}
 
 export default Pagination;

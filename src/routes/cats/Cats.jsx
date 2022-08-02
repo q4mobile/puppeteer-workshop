@@ -1,18 +1,16 @@
-import { Link, Outlet } from 'react-router-dom';
-import { NavLink, Outlet } from 'react-router-dom';
-import { index } from '../../../db_api.js';
+import { Outlet, NavLink } from 'react-router-dom';
+import { index } from '../../../db_api';
 
 export default function cats() {
-  let cats = index('cats');
+  const catsData = index('cats');
   return (
     <div style={{ display: 'flex' }}>
       <nav
         style={{
           borderRight: 'solid 1px',
           padding: '1rem'
-        }}
-      >
-        {cats.map((cat) => (
+        }}>
+        {catsData.map((cat) => (
           <NavLink
             id="cat_list"
             style={({ isActive }) => {
@@ -23,8 +21,7 @@ export default function cats() {
               };
             }}
             to={`/cats/${cat.id}`}
-            key={cat.id}
-          >
+            key={cat.id}>
             <span className="cat_name">{cat.name}</span>
           </NavLink>
         ))}

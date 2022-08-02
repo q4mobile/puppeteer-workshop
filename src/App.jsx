@@ -8,8 +8,7 @@ export default function App() {
         style={{
           borderBottom: 'solid 1px',
           paddingBottom: '1rem'
-        }}
-      >
+        }}>
         <Link to="/cats">Cats</Link> | <Link to="/people">People</Link>
       </nav>
       <Outlet />
