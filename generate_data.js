@@ -21,11 +21,13 @@ const generateCatsData = (number) => {
 const generatePeopleData = (number) => {
     const people = [];
     while (number >= 0) {
+        let dateObject = new Date(faker.date.future());
+        let date = dateObject.toLocaleDateString();
         people.push({
             id: number,
             firstName: faker.name.firstName(),
             lastName: faker.name.lastName(),
-            date: faker.date.future(),
+            date: date,
         });
         number--;
     }
