@@ -2,11 +2,11 @@ import React, { useState, useMemo } from 'react';
 import { index } from "../../../db_api.js";
 import Pagination from '../../components/pagination';
 
-let PageSize = 3;
 
 export default function People() {
   const people = index("people");
   
+  const PageSize = 3;
   const [currentPage, setCurrentPage] = useState(1);
 
   const currentTableData = useMemo(() => {
@@ -20,10 +20,10 @@ export default function People() {
         <thead>
           <tr>
             <th>ID</th>
-            <th>FIRST NAME</th>
-            <th>LAST NAME</th>
-            <th>EMAIL</th>
-            <th>PHONE</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Birthday</th>
           </tr>
         </thead>
         <tbody>
