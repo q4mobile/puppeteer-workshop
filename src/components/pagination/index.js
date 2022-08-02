@@ -2,16 +2,8 @@ import React from 'react';
 import { usePagination, DOTS } from './usePagination';
 import './pagination.scss';
 
-
-const Pagination = props => {
-  const {
-    onPageChange,
-    totalCount,
-    siblingCount = 1,
-    currentPage,
-    pageSize,
-    className
-  } = props;
+const Pagination = (props) => {
+  const { onPageChange, totalCount, siblingCount = 1, currentPage, pageSize, className } = props;
 
   const paginationRange = usePagination({
     currentPage,
@@ -34,29 +26,26 @@ const Pagination = props => {
   };
 
   let lastPage = paginationRange[paginationRange.length - 1];
-  
+
   return (
-    <ul
-      className={['pagination-container ' + className]}
-    >
-       {/* Left navigation arrow */}
+    <ul className={['pagination-container ' + className]}>
+      {/* Left navigation arrow */}
       <li
-        className={'pagination-item' + ( currentPage === 1 ? " disabled" : "")}
+        className={'pagination-item' + (currentPage === 1 ? ' disabled' : '')}
         onClick={onPrevious}
       >
         <div className="arrow left" />
       </li>
-      {paginationRange.map(pageNumber => {
-         
+      {paginationRange.map((pageNumber) => {
         // If the pageItem is a DOT, render the DOTS unicode character
         if (pageNumber === DOTS) {
           return <li className="pagination-item dots">&#8230;</li>;
         }
-		
+
         // Render our Page Pills
         return (
           <li
-            className={'pagination-item' + (pageNumber === currentPage ? " selected" : "")}
+            className={'pagination-item' + (pageNumber === currentPage ? ' selected' : '')}
             onClick={() => onPageChange(pageNumber)}
           >
             {pageNumber}
@@ -65,7 +54,7 @@ const Pagination = props => {
       })}
       {/*  Right Navigation arrow */}
       <li
-        className={'pagination-item' + (currentPage === lastPage ? " disabled" : "")}
+        className={'pagination-item' + (currentPage === lastPage ? ' disabled' : '')}
         onClick={onNext}
       >
         <div className="arrow right" />

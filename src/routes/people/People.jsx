@@ -1,11 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { index } from "../../../db_api.js";
+import { index } from '../../../db_api.js';
 import Pagination from '../../components/pagination';
 
-
 export default function People() {
-  const people = index("people");
-  
+  const people = index('people');
+
   const PageSize = 3;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -26,7 +25,7 @@ export default function People() {
           </tr>
         </thead>
         <tbody>
-          {currentTableData.map(item => {
+          {currentTableData.map((item) => {
             return (
               <tr>
                 <td>{item.id}</td>
@@ -43,7 +42,7 @@ export default function People() {
         currentPage={currentPage}
         totalCount={people.length}
         pageSize={PageSize}
-        onPageChange={page => setCurrentPage(page)}
+        onPageChange={(page) => setCurrentPage(page)}
       />
     </>
   );
