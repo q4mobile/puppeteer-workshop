@@ -19,8 +19,8 @@ const generateCatsData = (number) => {
 const generatePeopleData = (number) => {
   const people = [];
   while (number >= 0) {
-    let dateObject = new Date(faker.date.future());
-    let date = dateObject.toLocaleDateString();
+    const dateObject = new Date(faker.date.future());
+    const date = dateObject.toLocaleDateString();
     people.push({
       id: number,
       firstName: faker.name.firstName(),
