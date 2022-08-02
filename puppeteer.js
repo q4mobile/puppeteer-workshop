@@ -1,12 +1,16 @@
 import puppeteer from 'puppeteer';
 
 (async () => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto('https://news.ycombinator.com', {
-      waitUntil: 'networkidle2',
-    });
-    await page.pdf({path: 'hn.pdf', format: 'a4'});
-  
-    await browser.close();
-  })();
+  const browser = await puppeteer.launch({
+    userDataDir: './puppeteer_cache', /// caching for speed boost
+    headless: false,
+    slowMo: 100, // slow down in ms
+  });
+  const page = await browser.newPage();
+  await page.goto('http://localhost:1234/', {
+    waitUntil: 'networkidle2',
+  });
+
+  await page.click('nav a:nth-child(1)')
+  await browser.close();
+})();
