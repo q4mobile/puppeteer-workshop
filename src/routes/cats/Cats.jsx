@@ -6,13 +6,14 @@ export default function cats() {
   return (
     <div style={{ display: 'flex' }}>
       <nav
+        className="cat_list"
         style={{
           borderRight: 'solid 1px',
           padding: '1rem'
         }}>
         {catsData.map((cat) => (
           <NavLink
-            id="cat_list"
+            className="cat_list-item"
             style={({ isActive }) => {
               return {
                 display: 'block',
