@@ -22,7 +22,6 @@ export default function People() {
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Email</th>
             <th>Birthday</th>
           </tr>
         </thead>
