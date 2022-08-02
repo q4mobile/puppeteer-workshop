@@ -6,6 +6,6 @@ export function index(type) {
   
   export function get(type, id) {
     return db[type].find(
-      (cat) => cat.id === id
+      (item) => item.id === id
     );
   }
