@@ -2,3 +2,5 @@ node_modules
 .cache
 dist
 db.json
+.parcel-cache
+puppeteer_cache
