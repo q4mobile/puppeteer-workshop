@@ -15,7 +15,7 @@ export default function People() {
   }, [currentPage]);
   return (
     <>
-      <table>
+      <table className="people_table">
         <thead>
           <tr>
             <th>ID</th>
@@ -28,10 +28,10 @@ export default function People() {
           {currentTableData.map((item) => {
             return (
               <tr>
-                <td>{item.id}</td>
-                <td>{item.firstName}</td>
-                <td>{item.lastName}</td>
-                <td>{item.date}</td>
+                <td className="person_id">{item.id}</td>
+                <td className="person_first-name">{item.firstName}</td>
+                <td className="person_last-name">{item.lastName}</td>
+                <td className="person_date">{item.date}</td>
               </tr>
             );
           })}

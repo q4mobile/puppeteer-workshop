@@ -11,30 +11,9 @@ import puppeteer from 'puppeteer';
     waitUntil: 'networkidle2'
   });
 
-  await page.click('nav a:nth-child(1)');
+  await page.click('nav a:nth-child(2)');
 
   await page.waitForSelector('.cat_list-item', {
     visible: true
   });
-
-  const catURLs = await page.$$eval('.cat_list-item', (items) => items.map((item) => item.href));
-
-  async function scrapeAllUrls(urls, sel) {
-    let results = [];
-
-    for (let i = 0; i < urls.length; i += 1) {
-      await page.goto(urls[i], {
-        waitUntil: "domcontentloaded"
-      });
-      const el = await page.waitForSelector(sel);
-      results.push(await el.evaluate(el => el.textContent.trim()));
-    };
-
-
-    return results;
-  }
-
-  const textContent = await scrapeAllUrls(catURLs, '.cat_item');
-  console.log(textContent);
-  await browser.close();
 })();
