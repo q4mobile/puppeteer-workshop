@@ -10,7 +10,7 @@ export default function Cat() {
       <h2 className="cat_item-name">{catData.name}</h2>
       <p className="cat_item-job">
         {' '}
-        <b>Role:</b> {catData.job}
+        <b>Role:</b> <span className="cat_item-job_title">{catData.job}</span>
       </p>
       <img
         clasName="cat_item-picture"
