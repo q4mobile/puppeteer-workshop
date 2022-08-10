@@ -35,7 +35,7 @@ const generatePeopleData = (number) => {
 fs.writeFileSync(
   './db.json',
   JSON.stringify({
-    cats: generateCatsData(20),
-    people: generatePeopleData(20)
+    cats: generateCatsData(10),
+    people: generatePeopleData(10)
   })
 );
