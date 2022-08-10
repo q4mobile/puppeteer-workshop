@@ -3,8 +3,8 @@ import puppeteer from 'puppeteer';
 (async () => {
   const browser = await puppeteer.launch({
     userDataDir: './puppeteer_cache', /// caching for speed boost
-    headless: true
-    // slowMo: 150 // slow down in ms
+    headless: true, // false opens a visible browser
+    // slowMo: 200 // slow down in ms
   });
   const page = await browser.newPage();
   await page.goto('http://localhost:1234/', {
@@ -13,24 +13,23 @@ import puppeteer from 'puppeteer';
 
   await page.click('nav a:nth-child(1)');
 
-  await page.waitForSelector('.cat_list-item', {
-    visible: true
+  await page.waitForSelector('.cat_list-item');
+
+  const catURLs = await page.evaluate(() => {
+    const listOfCats = Array.from(document.getElementsByClassName('cat_list-item'));
+    return listOfCats.map((cat) => cat.href);
   });
 
-  const catURLs = await page.$$eval('.cat_list-item', (items) => items.map((item) => item.href));
-
   async function scrapeAllUrls(urls, sel) {
-    let results = [];
+    const results = [];
 
     for (let i = 0; i < urls.length; i += 1) {
       await page.goto(urls[i], {
-        waitUntil: "domcontentloaded"
+        waitUntil: "networkidle2"
       });
       const el = await page.waitForSelector(sel);
       results.push(await el.evaluate(el => el.textContent.trim()));
-    };
-
-
+    }
     return results;
   }
 

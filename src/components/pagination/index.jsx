@@ -30,7 +30,7 @@ function Pagination(props) {
   return (
     <ul className={[`pagination-container ${className}`]}>
       {/* Left navigation arrow */}
-      <li className={`pagination-item${currentPage === 1 ? ' disabled' : ''}`} onClick={onPrevious}>
+      <li className={`previous_page pagination-item${currentPage === 1 ? ' disabled' : ''}`} onClick={onPrevious}>
         <div className="arrow left" />
       </li>
       {paginationRange.map((pageNumber) => {
@@ -50,7 +50,7 @@ function Pagination(props) {
       })}
       {/*  Right Navigation arrow */}
       <li
-        className={`pagination-item${currentPage === lastPage ? ' disabled' : ''}`}
+        className={`next_page pagination-item${currentPage === lastPage ? ' disabled' : ''}`}
         onClick={onNext}>
         <div className="arrow right" />
       </li>
