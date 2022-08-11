@@ -2,12 +2,31 @@
 
 ## To Start:
 
-npm i
+### Install node modules
+```npm i```
 
-npm run generate_data
+### Generate fake data
+```npm run generate_data```
 
-npm run start
+### Start site to scrape
+```npm run start```
 
-## tasks:
+### To run pupppeteer script
+```node {LOCATION OF SCRIPT}```
 
-1.
+ex. ```node ./puppeteer.js``` 
+
+## Tasks:
+
+1. Run puppeteer in non-headless mode. You can also specify another option of key "slowmo" with an int value specifying milliseonds of time between each action [HINT](https://flaviocopes.com/puppeteer/#:~:text=You%20can%20pass%20an%20object%20with%20options%20to)
+2. Open a new page and go to "http://localhost:1234/" [HINT](https://flaviocopes.com/puppeteer/#:~:text=Next%20up%20we%20call%20the)
+3. Ensure puppeteer waits for the page to finish loading [HINT](https://flaviocopes.com/puppeteer/#:~:text=networkidle2)
+4. Click on the first nav item to open the list of cats [HINT](https://flaviocopes.com/puppeteer/#:~:text=Perform%20a%20mouse%20click%20event)
+5. Collect a list of urls for each cat's detail page. Use `page.evaluate(()=>{})` to run javascript on the browser and have it return data [HINT](https://flaviocopes.com/puppeteer/#:~:text=Once%20we%20have%20a%20page%20loaded%20with%20a%20URL)
+6. Go the [first details page](http://localhost:1234/cats/0) and scrape the role text for the cat. You can wait for the specific element to appear with `page.waitForSelector(SELECTOR)`[HINT](https://flaviocopes.com/puppeteer/#:~:text=waitForSelector). In this specific case, its reduntant since we've already waited for `networkidle2` on page load. This specific check would be useful with content loaded via AJAX. 
+7. Scrape the cat role from all details pages
+
+
+Solutions are in vanilla js. If you would like to use jQuery, you can inject it after you open a page with 
+
+```await page.addScriptTag({url: 'https://code.jquery.com/jquery-3.2.1.min.js'});```
