@@ -4,6 +4,7 @@ import App from './App';
 import People from './routes/people/People';
 import Cats from './routes/cats/Cats';
 import Cat from './routes/cats/Cat';
+import Form from './routes/form/form';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
           />
           <Route path=":catId" element={<Cat />} />
         </Route>
+        <Route path="form" element={<Form />} />
         <Route
           path="*"
           element={
