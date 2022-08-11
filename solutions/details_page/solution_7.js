@@ -11,8 +11,14 @@ import puppeteer from 'puppeteer';
     waitUntil: 'networkidle2'
   });
   await page.click('nav a:nth-child(1)');
+
   const catURLs = await page.evaluate(() => {
+    /// All of this code is run on the browser
     const listOfCats = Array.from(document.getElementsByClassName('cat_list-item'));
     return listOfCats.map((cat) => cat.href);
   });
+
+  await page.goto(catURLs[0], {
+        waitUntil: "networkidle2"
+    });
 })();
