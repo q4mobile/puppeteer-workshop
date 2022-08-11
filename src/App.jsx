@@ -9,7 +9,8 @@ export default function App() {
           borderBottom: 'solid 1px',
           paddingBottom: '1rem'
         }}>
-        <Link to="/cats">Cats</Link> | <Link to="/people">People</Link>
+        <Link to="/cats">Cats</Link> | <Link to="/people">People</Link> |{' '}
+        <Link to="/form">Form</Link>
       </nav>
       <Outlet />
     </div>
