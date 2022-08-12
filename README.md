@@ -37,7 +37,14 @@ ex. ```node ./puppeteer.js```
 5. Write a function that presses the next page button
 6. Scrape all pages using the 3 functions written in steps 3, 4, 5.
 
-### Forms
+### Form
+
+1. 
+2. Type into the two inputs with a name and email [Hint](https://flaviocopes.com/puppeteer/#:~:text=trigger%20typing%20into%20an%20element)
+3. 
+
+
+
 
 Solutions are in vanilla js. If you would like to use jQuery, you can inject it after you open a page with 
 

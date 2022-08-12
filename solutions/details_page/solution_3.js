@@ -7,7 +7,7 @@ import puppeteer from "puppeteer";
     slowMo: 200, // slow down in ms
   });
   const page = await browser.newPage();
-  await page.goto('http://localhost:1234/', {
-    waitUntil: 'networkidle2'
+  await page.goto("http://localhost:1234/", {
+    waitUntil: "networkidle2",
   });
 })();
