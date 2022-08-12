@@ -3,18 +3,15 @@ import puppeteer from "puppeteer";
 (async () => {
   const browser = await puppeteer.launch({
     userDataDir: "./puppeteer_cache", /// caching for speed boost
-    headless: false,
-    slowmo: 150,
+    headless: false, // true opens a visible browser
+    slowMo: 200, // slow down in ms
   });
   const page = await browser.newPage();
-
   await page.goto("http://localhost:1234/", {
     waitUntil: "networkidle2",
   });
 
   await page.click("nav a:nth-child(2)");
-
-  await page.waitForSelector(".people_table");
 
   const scrapeTable = async () => {
     const currentPageNames = await page.evaluate(() => {
@@ -34,23 +31,14 @@ import puppeteer from "puppeteer";
   };
 
   const isNextPageAvailable = async () => {
+    // returning a true or false if a next page is available
     return page.evaluate(() => {
+      /// selector for the next page button
       const nextPageButton = document.querySelector(".next_page");
+      /// returns true if the next page button has the "disabled" class else returns false
       return !nextPageButton.classList.contains("disabled");
     });
   };
-
-  const finalList = [];
-  let nextPageAvailable = true;
-
-  while (nextPageAvailable) {
-    const currentPageNames = await scrapeTable();
-    finalList.push(...currentPageNames);
-    await nextPage();
-    nextPageAvailable = await isNextPageAvailable();
-  }
-
-  console.log(finalList);
 
   await browser.close();
 })();

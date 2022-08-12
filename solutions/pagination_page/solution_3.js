@@ -14,18 +14,23 @@ import puppeteer from "puppeteer";
   await page.click("nav a:nth-child(2)");
 
   const scrapeTable = async () => {
-    /// using page.evaluate to run code in browser
     const currentPageNames = await page.evaluate(() => {
-      /// Converting into array from NodeList Objects
       const firstNameElements = Array.from(
-        /// Getting all elements with the class .person_first-name
         document.querySelectorAll(".person_first-name")
       );
-      /// returning a new array containing only the text content from the elements array
       return firstNameElements.map((el) => el.textContent);
     });
-    /// returning the value that page.evaluate returned
     return currentPageNames;
+  };
+
+  const nextPage = async () => {
+    /// running this code in browsser
+    await page.evaluate(() => {
+        /// selector for the next page button
+      const nextPageButton = document.querySelector(".next_page");
+      /// clickin the next page button
+      nextPageButton.click();
+    });
   };
   await browser.close();
 })();

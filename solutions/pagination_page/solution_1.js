@@ -11,6 +11,5 @@ import puppeteer from "puppeteer";
     waitUntil: "networkidle2",
   });
 
-  // 5. click on nav link to open directory of cats
   await page.click("nav a:nth-child(2)");
 })();
