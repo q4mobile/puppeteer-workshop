@@ -11,10 +11,11 @@
 ### Start site to scrape
 ```npm run start```
 
-### To run pupppeteer script
+### To run pupppeteer script, call the js file with node. (Run in a different terminal than ```npm run start```)
 ```node {LOCATION OF SCRIPT}```
 
-ex. ```node ./puppeteer.js``` 
+ex. ```node ./puppeteer.js``` or ```node ./solutions/details_page/solution_8.js``` to run a Solutions
+
 
 ## Tasks:
 
