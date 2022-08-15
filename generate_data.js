@@ -1,6 +1,6 @@
-import { faker } from '@faker-js/faker';
+import { faker } from "@faker-js/faker";
 
-import fs from 'fs';
+import fs from "fs";
 
 const generateCatsData = (number) => {
   const cats = [];
@@ -9,7 +9,7 @@ const generateCatsData = (number) => {
       id: number,
       name: faker.animal.cat(),
       job: faker.name.jobTitle(),
-      picture: faker.image.cats(400, 400, true)
+      picture: faker.image.cats(400, 400, true),
     });
     number--;
   }
@@ -25,7 +25,7 @@ const generatePeopleData = (number) => {
       id: number,
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
-      date: date
+      date,
     });
     number--;
   }
@@ -33,9 +33,9 @@ const generatePeopleData = (number) => {
 };
 
 fs.writeFileSync(
-  './db.json',
+  "./db.json",
   JSON.stringify({
     cats: generateCatsData(10),
-    people: generatePeopleData(10)
+    people: generatePeopleData(10),
   })
 );

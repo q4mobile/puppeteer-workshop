@@ -1,15 +1,22 @@
-import React from 'react';
-import { usePagination, DOTS } from './usePagination';
-import './pagination.scss';
+import React from "react";
+import { usePagination, DOTS } from "./usePagination";
+import "./pagination.scss";
 
 function Pagination(props) {
-  const { onPageChange, totalCount, siblingCount = 1, currentPage, pageSize, className } = props;
+  const {
+    onPageChange,
+    totalCount,
+    siblingCount = 1,
+    currentPage,
+    pageSize,
+    className,
+  } = props;
 
   const paginationRange = usePagination({
     currentPage,
     totalCount,
     siblingCount,
-    pageSize
+    pageSize,
   });
 
   // If there are less than 2 times in pagination range we shall not render the component
@@ -30,7 +37,12 @@ function Pagination(props) {
   return (
     <ul className={[`pagination-container ${className}`]}>
       {/* Left navigation arrow */}
-      <li className={`previous_page pagination-item${currentPage === 1 ? ' disabled' : ''}`} onClick={onPrevious}>
+      <li
+        className={`previous_page pagination-item${
+          currentPage === 1 ? " disabled" : ""
+        }`}
+        onClick={onPrevious}
+      >
         <div className="arrow left" />
       </li>
       {paginationRange.map((pageNumber) => {
@@ -42,16 +54,22 @@ function Pagination(props) {
         // Render our Page Pills
         return (
           <li
-            className={`pagination-item${pageNumber === currentPage ? ' selected' : ''}`}
-            onClick={() => onPageChange(pageNumber)}>
+            className={`pagination-item${
+              pageNumber === currentPage ? " selected" : ""
+            }`}
+            onClick={() => onPageChange(pageNumber)}
+          >
             {pageNumber}
           </li>
         );
       })}
       {/*  Right Navigation arrow */}
       <li
-        className={`next_page pagination-item${currentPage === lastPage ? ' disabled' : ''}`}
-        onClick={onNext}>
+        className={`next_page pagination-item${
+          currentPage === lastPage ? " disabled" : ""
+        }`}
+        onClick={onNext}
+      >
         <div className="arrow right" />
       </li>
     </ul>

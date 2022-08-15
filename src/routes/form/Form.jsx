@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 import {
   Box,
   Grid,
@@ -7,13 +7,13 @@ import {
   Checkbox,
   FormGroup,
   FormControlLabel,
-  Button
-} from '@mui/material';
-import { CSVLink } from 'react-csv';
+  Button,
+} from "@mui/material";
+import { CSVLink } from "react-csv";
 
 const Form = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [isCat, setIsCat] = useState(false);
 
   const [csvData, setCsvData] = useState([]);
@@ -21,14 +21,19 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await setCsvData([...csvData, ['name: ' + name, 'email: ' + email, 'isCat: ' + isCat]]);
-    setName('');
-    setEmail('');
+    await setCsvData([
+      ...csvData,
+      ["name: " + name, "email: " + email, "isCat: " + isCat],
+    ]);
+    setName("");
+    setEmail("");
     setIsCat(false);
   };
 
   const handleCsvDownload = () => {
-    csvData.length ? csvLink.current.link.click() : window.alert('Please submit some items first');
+    csvData.length
+      ? csvLink.current.link.click()
+      : window.alert("Please submit some items first");
   };
 
   return (
@@ -57,7 +62,8 @@ const Form = () => {
                 label="Is Cat?"
                 checked={isCat}
                 onChange={() => setIsCat(!isCat)}
-                control={<Checkbox id="is-cat-input" />}></FormControlLabel>
+                control={<Checkbox id="is-cat-input" />}
+              ></FormControlLabel>
             </FormGroup>
           </Grid>
           <Grid container item xs={4} gap={1}>
@@ -65,15 +71,20 @@ const Form = () => {
               Add Item
             </Button>
 
-            <Button color="secondary" variant="contained" onClick={handleCsvDownload}>
+            <Button
+              color="secondary"
+              variant="contained"
+              onClick={handleCsvDownload}
+            >
               Download CSV
             </Button>
 
             <CSVLink
               data={csvData}
               ref={csvLink}
-              filename={'form-data.csv'}
-              target="_blank"></CSVLink>
+              filename={"form-data.csv"}
+              target="_blank"
+            ></CSVLink>
           </Grid>
         </Grid>
       </Box>

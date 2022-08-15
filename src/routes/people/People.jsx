@@ -1,9 +1,9 @@
-import React, { useState, useMemo } from 'react';
-import { index } from '../../../db_api';
-import Pagination from '../../components/pagination';
+import React, { useState, useMemo } from "react";
+import { index } from "../../../db_api";
+import Pagination from "../../components/pagination";
 
 export default function People() {
-  const people = index('people');
+  const people = index("people");
 
   const PageSize = 3;
   const [currentPage, setCurrentPage] = useState(1);

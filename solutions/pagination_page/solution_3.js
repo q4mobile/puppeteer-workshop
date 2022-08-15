@@ -26,7 +26,7 @@ import puppeteer from "puppeteer";
   const nextPage = async () => {
     /// running this code in browsser
     await page.evaluate(() => {
-        /// selector for the next page button
+      /// selector for the next page button
       const nextPageButton = document.querySelector(".next_page");
       /// clickin the next page button
       nextPageButton.click();
