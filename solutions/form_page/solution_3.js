@@ -11,6 +11,11 @@ const formData = JSON.parse(fs.readFileSync("form_data.json"));
 
   const page = await browser.newPage();
 
+  await page.setViewport({
+    width: 1920,
+    height: 1080,
+  });
+
   await page.goto("http://localhost:1234/", {
     waitUntil: "networkidle2",
   });

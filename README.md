@@ -46,7 +46,16 @@ ex. ```node ./puppeteer.js``` or ```node ./solutions/details_page/solution_8.js`
 
     Then using fs, read the json file and store it in a variable: `let formData = JSON.parse(fs.readFileSync('form_data.json'));`
 
-2. Input all fields into the form 
+2. Adjust puppeteer's window size after opening a page:
+
+```js
+  await page.setViewport({
+    width: 1920,
+    height: 1080,
+  });
+```
+
+3. Input all fields into the form 
 
 Solutions are in vanilla js. If you would like to use jQuery, you can inject it after you open a page with 
 
