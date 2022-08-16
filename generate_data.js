@@ -39,6 +39,7 @@ const formData = (number) => {
       id: number,
       name: faker.name.firstName(),
       email: faker.internet.email(),
+      isPresent: faker.datatype.boolean()
     });
     number --;
   }
