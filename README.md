@@ -40,7 +40,7 @@ ex. ```node ./puppeteer.js``` or ```node ./solutions/details_page/solution_8.js`
 
 ### Form
 
-1. 
+1. Import fake data to submit into the form from form_data.json with `let formData = JSON.parse(fs.readFileSync('form_data.json'));`
 2. Type into the two inputs with a name and email [Hint](https://flaviocopes.com/puppeteer/#:~:text=trigger%20typing%20into%20an%20element)
 3. 
 
