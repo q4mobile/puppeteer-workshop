@@ -11,7 +11,7 @@
 ### Start site to scrape
 ```npm run start```
 
-### To run pupppeteer script, call the js file with node. (Run in a different terminal than ```npm run start```)
+### To run puppeteer script, call the js file with node. (Run in a different terminal than ```npm run start```)
 ```node {LOCATION OF SCRIPT}```
 
 ex. ```node ./puppeteer.js``` or ```node ./solutions/details_page/solution_8.js``` to run a Solutions
@@ -31,7 +31,7 @@ ex. ```node ./puppeteer.js``` or ```node ./solutions/details_page/solution_8.js`
 
 ### Pagination
 
-1. Using pupeteer, navigate to the second nav link
+1. Using puppeteer, navigate to the second nav link
 2. Ensure the `<table>` has loaded with `page.waitForSelector(SELECTOR)`[HINT](https://flaviocopes.com/puppeteer/#:~:text=waitForSelector)
 3. Write a function that scrapes the first name from the table
 4. Write a function that checks if there are additional pages. Hint - the next page button has a `disabled` class when there are no more pages

@@ -13,7 +13,7 @@ export default function Cat() {
         <b>Role:</b> <span className="cat_item-job_title">{catData.job}</span>
       </p>
       <img
-        clasName="cat_item-picture"
+        className="cat_item-picture"
         src={catData.picture}
         alt={`An innacurate depiction of ${catData.name}`}
       />
