@@ -22,12 +22,16 @@ const formData = JSON.parse(fs.readFileSync("form_data.json"));
 
   await page.click("nav a:nth-child(3)");
 
+  // for each item in formData
   for (let i = 0; i < formData.length; i += 1) {
+    /// type in the input
     await page.type("input#name-input", formData[i].name);
     await page.type("input#email-input", formData[i].email);
+    // if the person has isPresent equal to true, then check the box, else do nothing
     if (formData[i].isPresent) {
       await page.click("input#is-present-input");
     }
+    // click the submit button
     await page.click('button[type="submit"');
   }
   browser.close();
