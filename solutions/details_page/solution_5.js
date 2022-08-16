@@ -16,10 +16,13 @@ import puppeteer from "puppeteer";
   /// All of this code is run on the browser
   const catURLs = await page.evaluate(() => {
     const listOfCats = Array.from(
+      /// select all elements that have the classname of "cat_list-item"
       document.getElementsByClassName("cat_list-item")
     );
+    /// iterate through the listOfCats array and return the hrefs from each in an array
     return listOfCats.map((cat) => cat.href);
   });
 
+  // prints out the urls of each details page in an array
   console.log(catURLs);
 })();

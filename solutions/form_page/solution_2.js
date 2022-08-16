@@ -11,6 +11,7 @@ const formData = JSON.parse(fs.readFileSync("form_data.json"));
 
   const page = await browser.newPage();
 
+  // resizing the window for puppeteer to see more content
   await page.setViewport({
     width: 1920,
     height: 1080,

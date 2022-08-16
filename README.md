@@ -14,7 +14,7 @@
 ### To run puppeteer script, call the js file with node. (Run in a different terminal than ```npm run start```)
 ```node {LOCATION OF SCRIPT}```
 
-ex. ```node ./puppeteer.js``` or ```node ./solutions/details_page/solution_8.js``` to run a Solutions
+ex. ```node ./puppeteer.js``` or ```node ./solutions/details_page/solution_7.js``` to run a Solutions
 
 
 ## Tasks:
@@ -55,7 +55,7 @@ ex. ```node ./puppeteer.js``` or ```node ./solutions/details_page/solution_8.js`
   });
 ```
 
-3. Input all fields into the form 
+3. Input all values from `form_data.js` into the form 
 
 Solutions are in vanilla js. If you would like to use jQuery, you can inject it after you open a page with 
 
