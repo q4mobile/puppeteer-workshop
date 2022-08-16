@@ -11,7 +11,7 @@ const generateCatsData = (number) => {
       job: faker.name.jobTitle(),
       picture: faker.image.cats(400, 400, true),
     });
-    number--;
+    number --;
   }
   return cats;
 };
@@ -27,7 +27,20 @@ const generatePeopleData = (number) => {
       lastName: faker.name.lastName(),
       date,
     });
-    number--;
+    number --;
+  }
+  return people;
+};
+
+const formData = (number) => {
+  const people = [];
+  while (number >= 0) {
+    people.push({
+      id: number,
+      name: faker.name.firstName(),
+      email: faker.internet.email(),
+    });
+    number --;
   }
   return people;
 };
@@ -39,3 +52,5 @@ fs.writeFileSync(
     people: generatePeopleData(10),
   })
 );
+
+fs.writeFileSync("./form_data.json", JSON.stringify(formData(10)));
