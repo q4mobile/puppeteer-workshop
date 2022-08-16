@@ -40,12 +40,13 @@ ex. ```node ./puppeteer.js``` or ```node ./solutions/details_page/solution_8.js`
 
 ### Form
 
-1. 
-2. Type into the two inputs with a name and email [Hint](https://flaviocopes.com/puppeteer/#:~:text=trigger%20typing%20into%20an%20element)
-3. 
+1. Import fake data to submit into the form from form_data.json.
 
+    We'll be using "fs" to read the file. Please import it: `import fs from "fs";`
 
+    Then using fs, read the json file and store it in a variable: `let formData = JSON.parse(fs.readFileSync('form_data.json'));`
 
+2. Input all fields into the form 
 
 Solutions are in vanilla js. If you would like to use jQuery, you can inject it after you open a page with 
 

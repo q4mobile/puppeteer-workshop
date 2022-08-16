@@ -8,13 +8,20 @@ import {
   FormGroup,
   FormControlLabel,
   Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
 } from "@mui/material";
 import { CSVLink } from "react-csv";
 
-const Form = () => {
+function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [isCat, setIsCat] = useState(false);
+  const [isPresent, setIsPresent] = useState(false);
+  const [submittedData, setSubmittedData] = useState([]);
 
   const [csvData, setCsvData] = useState([]);
   const csvLink = useRef();
@@ -23,11 +30,15 @@ const Form = () => {
     e.preventDefault();
     await setCsvData([
       ...csvData,
-      ["name: " + name, "email: " + email, "isCat: " + isCat],
+      [`name: ${name}`, `email: ${email}`, `Present: ${isPresent}`],
+    ]);
+    setSubmittedData((oldSubmittedData) => [
+      ...oldSubmittedData,
+      { name, email, isPresent },
     ]);
     setName("");
     setEmail("");
-    setIsCat(false);
+    setIsPresent(false);
   };
 
   const handleCsvDownload = () => {
@@ -59,11 +70,11 @@ const Form = () => {
           <Grid item xs={4}>
             <FormGroup>
               <FormControlLabel
-                label="Is Cat?"
-                checked={isCat}
-                onChange={() => setIsCat(!isCat)}
-                control={<Checkbox id="is-cat-input" />}
-              ></FormControlLabel>
+                label="Is Present?"
+                checked={isPresent}
+                onChange={() => setIsPresent(!isPresent)}
+                control={<Checkbox id="is-present-input" />}
+              />
             </FormGroup>
           </Grid>
           <Grid container item xs={4} gap={1}>
@@ -82,14 +93,36 @@ const Form = () => {
             <CSVLink
               data={csvData}
               ref={csvLink}
-              filename={"form-data.csv"}
+              filename="form-data.csv"
               target="_blank"
-            ></CSVLink>
+            />
           </Grid>
         </Grid>
       </Box>
+      <Box>
+        <TableContainer>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell>Email</TableCell>
+                <TableCell>Present</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {submittedData.map((data) => (
+                <TableRow>
+                  <TableCell>{data.name}</TableCell>
+                  <TableCell>{data.email}</TableCell>
+                  <TableCell>{data.isPresent ? "True" : "False"}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
     </Container>
   );
-};
+}
 
 export default Form;
