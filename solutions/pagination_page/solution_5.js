@@ -4,7 +4,7 @@ import puppeteer from "puppeteer";
   const browser = await puppeteer.launch({
     userDataDir: "./puppeteer_cache", /// caching for speed boost
     headless: false,
-    slowmo: 3000,
+    slowMo: 3000,
   });
   const page = await browser.newPage();
 
