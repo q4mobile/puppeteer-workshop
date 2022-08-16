@@ -10,4 +10,7 @@ import puppeteer from "puppeteer";
   await page.goto("http://localhost:1234/", {
     waitUntil: "networkidle2",
   });
+
+    // Click on the first nav link to open directory of cats
+    await page.click("nav a:nth-child(1)");
 })();

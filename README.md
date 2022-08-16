@@ -21,7 +21,7 @@ ex. ```node ./puppeteer.js``` or ```node ./solutions/details_page/solution_8.js`
 
 ### Details Pages
 
-1. Run puppeteer in non-headless. In non-headless mode, a chromium browser will open where you can see the actions taken. You can also specify another option of key "slowmo" with an int value specifying milliseonds of time between each action [HINT](https://flaviocopes.com/puppeteer/#:~:text=You%20can%20pass%20an%20object%20with%20options%20to)
+1. Run puppeteer in non-headless. In non-headless mode, a chromium browser will open where you can see the actions taken. You can also specify another option of key "slowMo" with an int value specifying milliseonds of time between each action [HINT](https://flaviocopes.com/puppeteer/#:~:text=You%20can%20pass%20an%20object%20with%20options%20to)
 2. Open a new page and go to "http://localhost:1234/" [HINT](https://flaviocopes.com/puppeteer/#:~:text=Next%20up%20we%20call%20the)
 3. Ensure puppeteer waits for the page to finish loading [HINT](https://flaviocopes.com/puppeteer/#:~:text=networkidle2)
 4. Click on the first nav item to open the list of cats [HINT](https://flaviocopes.com/puppeteer/#:~:text=Perform%20a%20mouse%20click%20event)
@@ -46,7 +46,16 @@ ex. ```node ./puppeteer.js``` or ```node ./solutions/details_page/solution_8.js`
 
     Then using fs, read the json file and store it in a variable: `let formData = JSON.parse(fs.readFileSync('form_data.json'));`
 
-2. Input all fields into the form 
+2. Adjust puppeteer's window size after opening a page:
+
+```js
+  await page.setViewport({
+    width: 1920,
+    height: 1080,
+  });
+```
+
+3. Input all fields into the form 
 
 Solutions are in vanilla js. If you would like to use jQuery, you can inject it after you open a page with 
 

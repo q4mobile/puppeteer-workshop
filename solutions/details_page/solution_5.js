@@ -11,6 +11,15 @@ import puppeteer from "puppeteer";
     waitUntil: "networkidle2",
   });
 
-  // 5. click on nav link to open directory of cats
   await page.click("nav a:nth-child(1)");
+
+  /// All of this code is run on the browser
+  const catURLs = await page.evaluate(() => {
+    const listOfCats = Array.from(
+      document.getElementsByClassName("cat_list-item")
+    );
+    return listOfCats.map((cat) => cat.href);
+  });
+
+  console.log(catURLs);
 })();

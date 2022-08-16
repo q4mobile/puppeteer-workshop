@@ -8,6 +8,7 @@ import puppeteer from "puppeteer";
   });
   const page = await browser.newPage();
   await page.goto("http://localhost:1234/", {
+    // Waiting for network requests to end before doing more actions
     waitUntil: "networkidle2",
   });
 })();
